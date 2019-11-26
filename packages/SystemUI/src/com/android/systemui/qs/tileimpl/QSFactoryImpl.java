@@ -56,6 +56,7 @@ import com.android.systemui.qs.tiles.UiModeNightTile;
 import com.android.systemui.qs.tiles.UserTile;
 import com.android.systemui.qs.tiles.WifiTile;
 import com.android.systemui.qs.tiles.WorkModeTile;
+import com.android.systemui.qs.tiles.DataSwitchTile;
 import com.android.systemui.util.leak.GarbageMonitor;
 import com.android.systemui.qs.tiles.CompassTile;
 import com.android.systemui.qs.tiles.CaffeineTile;
@@ -105,6 +106,7 @@ public class QSFactoryImpl implements QSFactory {
     private final Provider<LiveDisplayTile> mLiveDisplayTileProvider;
     private final Provider<SmartPixelsTile> mSmartPixelsTileProvider;
     private final Provider<ReadingModeTile> mReadingModeTileProvider;
+    private final Provider<DataSwitchTile> mDataSwitchTileProvider;
 
     private QSTileHost mHost;
 
@@ -136,13 +138,15 @@ public class QSFactoryImpl implements QSFactory {
             Provider<ScreenRecordTile> screenRecordTileProvider,
             Provider<CompassTile> compassTileProvider,
             Provider<HeadsUpTile> headsUpTileProvider,
+<<<<<<< HEAD
             Provider<ScreenshotTile> screenshotTileProvider,
             Provider<RebootTile> rebootTileProvider,
             Provider<GamingModeTile> gamingModeTileProvider,
             Provider<MusicTile> musicTileProvider,
             Provider<SmartPixelsTile> smartPixelsTileProvider,
             Provider<LiveDisplayTile> liveDisplayTileProvider,
-            Provider<ReadingModeTile> readingModeTileProvider) {
+            Provider<ReadingModeTile> readingModeTileProvider)
+            Provider<DataSwitchTile> dataSwitchTileProvider) {
         mWifiTileProvider = wifiTileProvider;
         mBluetoothTileProvider = bluetoothTileProvider;
         mCellularTileProvider = cellularTileProvider;
@@ -177,6 +181,7 @@ public class QSFactoryImpl implements QSFactory {
         mSmartPixelsTileProvider = smartPixelsTileProvider;
         mLiveDisplayTileProvider = liveDisplayTileProvider;
         mReadingModeTileProvider = readingModeTileProvider;
+        mDataSwitchTileProvider = dataSwitchTileProvider;
     }
 
     public void setHost(QSTileHost host) {
@@ -260,6 +265,8 @@ public class QSFactoryImpl implements QSFactory {
                 return mLiveDisplayTileProvider.get();
             case "reading_mode":
                 return mReadingModeTileProvider.get();
+            case "dataswitch":
+                return mDataSwitchTileProvider.get();
         }
 
         // Intent tiles.
