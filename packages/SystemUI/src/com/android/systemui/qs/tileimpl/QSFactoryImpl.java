@@ -138,7 +138,6 @@ public class QSFactoryImpl implements QSFactory {
             Provider<ScreenRecordTile> screenRecordTileProvider,
             Provider<CompassTile> compassTileProvider,
             Provider<HeadsUpTile> headsUpTileProvider,
-<<<<<<< HEAD
             Provider<ScreenshotTile> screenshotTileProvider,
             Provider<RebootTile> rebootTileProvider,
             Provider<GamingModeTile> gamingModeTileProvider,
